@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRẦN PHƯỚC LỘC - Academic & Research CV</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. VARIABLES & BASE STYLES
+           ========================================================================== */
+        :root {
+            --primary-navy: #0F172A;     /* Deep Navy (Slate 900) */
+            --accent-navy: #1E293B;      /* Dark Slate (Slate 800) */
+            --slate-gray: #475569;       /* Slate Gray (Slate 600) */
+            --light-bg: #F8FAFC;         /* Soft Off-White (Slate 50) */
+            --card-bg: #FFFFFF;          /* Pure White */
+            --border-color: #E2E8F0;     /* Light Gray Border (Slate 200) */
+            --accent-blue: #2563EB;      /* Interactive Accent */
+            --font-main: 'Inter', sans-serif;
+            --container-width: 900px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--light-bg);
+            color: var(--primary-navy);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ==========================================================================
+           2. REUSABLE COMPONENTS & UTILITIES
+           ========================================================================== */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary-navy);
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-navy);
+        }
+
+        /* ==========================================================================
+           3. HEADER & NAVIGATION
+           ========================================================================== */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FFFFFF;
+        }
+
+        /* ==========================================================================
+           4. HERO & PERSONAL INFO SECTION
+           ========================================================================== */
+        #hero {
+            padding-top: calc(70px + 5rem);
+            background-color: var(--white);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #F1F5F9;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--primary-navy);
+        }
+
+        .hero-title-sub {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--slate-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--slate-gray);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        /* ==========================================================================
+           5. ACADEMIC BIO SECTION
+           ========================================================================== */
+        .bio-content {
+            font-size: 1.05rem;
+            color: var(--slate-gray);
+            max-width: 760px;
+            line-height: 1.8;
+        }
+
+        /* ==========================================================================
+           6. EDUCATION SECTION
+           ========================================================================== */
+        .edu-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .edu-card {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
+        }
+
+        .edu-time {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--slate-gray);
+            padding-top: 0.2rem;
+        }
+
+        .edu-institution {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--slate-gray);
+            margin-top: 0.25rem;
+        }
+
+        .edu-major {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-meta {
+            font-size: 0.95rem;
+            color: var(--slate-gray);
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .edu-gpa {
+            font-weight: 500;
+            color: var(--primary-navy);
+        }
+
+        /* ==========================================================================
+           7. SKILLS SECTION
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skills-column h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--primary-navy);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .skills-list li {
+            font-size: 0.95rem;
+            color: var(--slate-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: var(--slate-gray);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* ==========================================================================
+           8. INTERESTS & COMMUNITY ACTIVITIES
+           ========================================================================== */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .activity-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .activity-card p {
+            font-size: 0.95rem;
+            color: var(--slate-gray);
+        }
+
+        /* ==========================================================================
+           9. FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--primary-navy);
+            color: #94A3B8;
+            padding: 3rem 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text-left {
+            color: #64748B;
+        }
+
+        .footer-text-right {
+            text-align: right;
+        }
+
+        /* ==========================================================================
+           10. RESPONSIVE DESIGN (MEDIA QUERIES)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .section {
+                padding: 3.5rem 0;
+            }
+
+            .nav-links {
+                display: none; /* Can be expanded with JS, simple for pure minimal HTML */
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .profile-img-container {
+                margin: 0 auto;
+                width: 180px;
+                height: 180px;
+            }
+
+            .meta-list {
+                grid-template-columns: 1fr;
+                text-align: left;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .edu-card {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .edu-time {
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-text-right {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">T. P. LỘC</a>
+            <ul class="nav-links">
+                <li><a href="#about">Lý lịch</a></li>
+                <li><a href="#education">Học vấn</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#interests">Hoạt động</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="profile-img-container">
+                    <!-- SỬ DỤNG FILE ẢNH ĐƯỢC CUNG CẤP -->
+                    <img src="z8043197358483_471b19a48a0645be3a5caa3ece202e2c.jpg" alt="TRẦN PHƯỚC LỘC" class="profile-img">
+                </div>
+                <div class="hero-details">
+                    <h1 class="hero-name">TRẦN PHƯỚC LỘC</h1>
+                    <div class="hero-title-sub">Thạc sĩ Toán ứng dụng</div>
+                    
+                    <ul class="meta-list">
+                        <li class="meta-item">
+                            <span class="meta-label">Điện thoại:</span> 0762830737
+                        </li>
+                        <li class="meta-item">
+                            <span class="meta-label">Email:</span> phuocloc290502@gmail.com
+                        </li>
+                        <li class="meta-item">
+                            <span class="meta-label">Địa chỉ:</span> Tân Quới, Vĩnh Long
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACADEMIC BIO SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Giới thiệu</h2>
+            <div class="bio-content">
+                <p>
+                    Là học viên chuyên ngành Toán ứng dụng và là giáo viên dạy Toán cấp Trung học phổ thông (khối lớp 10, 11, 12). Với định hướng học thuật kết hợp thực tiễn giảng dạy, tôi luôn hướng đến sự chuẩn mực, tính logic và ứng dụng cao trong khoa học Toán học vào việc truyền tải tri thức.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Học tập</h2>
+            <div class="edu-timeline">
+                
+                <!-- Đại học Cần Thơ -->
+                <div class="edu-card">
+                    <div class="edu-time">
+                        2020 — 2024
+                        <div class="edu-institution">Đại học Cần Thơ</div>
+                    </div>
+                    <div>
+                        <h3 class="edu-major">Cử nhân Sư phạm Toán học</h3>
+                        <div class="edu-meta">
+                            <span class="edu-gpa">Điểm trung bình tích lũy (GPA): 3.08 / 4.0</span>
+                            <span><strong>Đề tài nghiên cứu tiêu biểu:</strong> Dạy học khám phá Đạo hàm lớp 11</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Năng lực & Công cụ</h2>
+            <div class="skills-grid">
+                
+                <!-- Chuyên môn -->
+                <div class="skills-column">
+                    <h3>Chuyên môn (Hard Skills)</h3>
+                    <ul class="skills-list">
+                        <li>Giải toán chuyên sâu bằng máy tính cầm tay CASIO</li>
+                        <li>Nghiên cứu & phát triển phương pháp dạy học khám phá toán phổ thông</li>
+                    </ul>
+                </div>
+
+                <!-- Kỹ năng mềm -->
+                <div class="skills-column">
+                    <h3>Kỹ năng mềm</h3>
+                    <ul class="skills-list">
+                        <li>Tư duy phản biện khoa học</li>
+                        <li>Làm việc nhóm hiệu quả</li>
+                        <li>Thuyết trình & Truyền đạt khoa học</li>
+                    </ul>
+                </div>
+
+                <!-- Ngoại ngữ -->
+                <div class="skills-column">
+                    <h3>Ngoại ngữ</h3>
+                    <ul class="skills-list">
+                        <li>Tiếng Anh trình độ B1 (CEFR)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERESTS & ACTIVITIES SECTION -->
+    <section id="interests" class="section">
+        <div class="container">
+            <h2 class="section-title">Hoạt động & Sở thích</h2>
+            <div class="activities-grid">
+                
+                <div class="activity-card">
+                    <h3>Sở thích cá nhân</h3>
+                    <p>Đam mê thể thao, rèn luyện thể lực và tư duy hướng trí tuệ, khoa học để duy trì sự cân bằng tinh thần.</p>
+                </div>
+
+                <div class="activity-card">
+                    <h3>Hoạt động cộng đồng</h3>
+                    <p>Thành viên tích cực thuộc Đội tuyển bóng đá Khoa Sư phạm - Đại học Cần Thơ.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-text-left">
+                &copy; 2026 TRẦN PHƯỚC LỘC. Tất cả quyền được bảo lưu.
+            </div>
+            <div class="footer-text-right">
+                Hồ sơ Khoa học & Giảng dạy | Toán ứng dụng
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
